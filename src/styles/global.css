@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --white: #FFF;
+    --background: #F2F3F5;
+    --gray-line: #DCDDE0;
+    --text: #666666;
+    --text-highlight: #B3B9FF;
+    --title: #2E384D;
+    --red: #E83F5B;
+    --green: #4CD62B;
+    --blue: #5965E0;
+    --blue-dark: #4953B8;
+    --blue-twitter: #2AA9E0;
+}
+
+@media(max-width: 1080px) {
+    /* Usamos 93.75%, pois 16 * 0,9375 = 15, ou seja, diminuimos 1px da nossa aplicação! */
+    html {
+        font-size: 93.75;
+    }
+}
+
+@media(max-width: 720px) {
+    /* Usamos 87.5%, pois 16 * 0,8750 = 14, ou seja, diminuimos 1px da nossa aplicação! */
+    html {
+        font-size: 87.5%;
+    }
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+}
+
+/* 
+    - Usando rem podemos fazer com que quando o tamanho da minha tela for reduzindo eu vá diminuindo o font-size
+    do corpo da minha aplicação. Com isso, uma vez que eu altero o font-size do corpo da aplicação, todos os outros
+    elementos que utilizam rem como unidade de medida vão se adaptando ao novo tamanho do font-size.
+    - Cada 1rem equivale ao tamanho do font-size do corpo da nossa aplicação.
+    - O padrão do font-size da nossa aplicação web é 16px.
+        - Então 1rem equivale a 16px de tamanho.
+        - Posso usar essa mesma ideia, tanto para fontes como para qualquer outra coisa na minha aplicação.
+ */
+
+body, input, textarea, button {
+    font: 400 1rem "Inter", sans-serif
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    height: 100vh;
+    max-width: 992px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos do componente ExperienceBar */
+
+.experience-bar {
+    display: flex;
+    align-items: center;
+}
+
+.experience-bar span {
+    font-size: 1rem;
+}
+
+/* 
+    Quando usamos ">", isso significa que vamos pegar o primeiro nível que contem a div,
+    funciona basicamente como se fosse o SelectSingleNode(".//") que você já está habituado!
+*/
+
+/* Flex: 1, serve para pegar toda a largura possível do container  */
+
+.experience-bar>div {
+    flex: 1;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--gray-line);
+    margin: 0 1.5rem;
+    position: relative;
+}
+
+.experience-bar>div>div {
+    height: 4px;
+    border-radius: 4px;
+    background: var(--green);
+}
+
+/* 
+    Quando temos um position: absolute, e eu quero que o centro ele seja a "âncora" do posicionamento,
+    e só eu fazer um transform: translateX(eixo X) de -50%, que ele vai voltar -50% do centro dele mesmo.
+*/
+
+span.current-experience {
+    position: absolute;
+    top: 12px;
+    transform: translateX(-50%);
+}
