@@ -1,0 +1,41 @@
+.experienceBar {
+  display: flex;
+  align-items: center;
+}
+
+.experienceBar span {
+  font-size: 1rem;
+}
+
+.experienceBar > div {
+  flex: 1;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--gray-line);
+  margin: 0 1.5rem;
+  position: relative;
+}
+
+.experienceBar > div > div {
+  height: 4px;
+  border-radius: 4px;
+  background: var(--green);
+}
+
+span.currentExperience {
+  position: absolute;
+  top: 12px;
+  transform: translateX(-50%);
+}
+
+/* 
+  Quando temos um position: absolute, e eu quero que o centro ele seja a "âncora" do posicionamento,
+  e só eu fazer um transform: translateX(eixo X) de -50%, que ele vai voltar -50% do centro dele mesmo.
+*/
+
+/* 
+  Quando usamos ">", isso significa que vamos pegar o primeiro nível que contem a div,
+  funciona basicamente como se fosse o SelectSingleNode(".//") que você já está habituado!
+*/
+
+/* Flex: 1, serve para pegar toda a largura possível do container  */
